@@ -9,7 +9,8 @@ import static org.junit.Assert.*;
 public class ListUtilsTest {
     @Test
     public void testInvalidInput(){
-        assertThrows(NullPointerException.class,()->{ListUtils.intersection(null,List.of());});
+        assertThrows(NullPointerException.class,()->{
+            ListUtils.intersection(null,List.of());});
         assertThrows(NullPointerException.class,()->{ListUtils.intersection(List.of(),null);});
         assertThrows(NullPointerException.class,()->{ListUtils.intersection(null,null);});
     }

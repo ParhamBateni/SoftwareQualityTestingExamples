@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class WordUtilsTest {
     @Test
     public void testEmpty(){
-        assertEquals(null,WordUtils.swapCase(null));
+        assertEquals(null, WordUtils.swapCase(null));
         assertEquals("",WordUtils.swapCase(""));
     }
 

@@ -1,4 +1,4 @@
-package W01_SpecifactionBasedTesting;
+package W01_SpecificationBasedTesting;
 
 import java.util.Collection;
 

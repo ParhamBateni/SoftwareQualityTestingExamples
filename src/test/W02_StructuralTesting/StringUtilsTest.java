@@ -1,13 +1,14 @@
 package W02_StructuralTesting;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
 public class StringUtilsTest {
     @Test
     public void testBasicInputs(){
-        assertEquals(null,StringUtils.repeat(null,1));
+        assertEquals(null, StringUtils.repeat(null,1));
         assertEquals("",StringUtils.repeat("a",0));
         assertEquals("",StringUtils.repeat("",2));
         assertEquals("ab",StringUtils.repeat("ab",1));

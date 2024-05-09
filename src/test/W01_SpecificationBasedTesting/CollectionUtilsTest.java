@@ -1,6 +1,5 @@
 package W01_SpecificationBasedTesting;
 
-import W01_SpecifactionBasedTesting.CollectionUtils;
 import org.junit.Test;
 
 import java.util.Collection;

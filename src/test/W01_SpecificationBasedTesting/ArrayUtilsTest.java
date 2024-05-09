@@ -1,7 +1,7 @@
 package W01_SpecificationBasedTesting;
 
-import W01_SpecifactionBasedTesting.ArrayUtils;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 

@@ -1,8 +1,7 @@
-package W06_PropertyBasedTesting;
+package W06_TestDoublesAndMocks;
 
 import static org.junit.Assert.*;
 
-import W06_PropertyBasedTesting.Palindrome;
 import net.jqwik.api.*;
 import net.jqwik.api.constraints.*;
 

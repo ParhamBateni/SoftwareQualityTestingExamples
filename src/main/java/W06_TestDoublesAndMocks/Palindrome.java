@@ -1,4 +1,4 @@
-package W06_PropertyBasedTesting;
+package W06_TestDoublesAndMocks;
 
 public class Palindrome {
     private Palindrome() {

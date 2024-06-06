@@ -1,4 +1,4 @@
-package W06_PropertyBasedTesting;
+package W06_TestDoublesAndMocks;
 
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;

@@ -1,9 +1,8 @@
-package W06_PropertyBasedTesting;
+package W06_TestDoublesAndMocks;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
-import org.mockito.internal.matchers.Any;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

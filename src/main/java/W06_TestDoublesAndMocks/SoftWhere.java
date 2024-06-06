@@ -1,4 +1,4 @@
-package W06_PropertyBasedTesting;
+package W06_TestDoublesAndMocks;
 
 import java.time.LocalDate;
 import java.util.List;

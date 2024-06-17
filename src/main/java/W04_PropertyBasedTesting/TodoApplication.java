@@ -1,6 +1,6 @@
 package W04_PropertyBasedTesting;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -11,7 +11,9 @@ interface PersonService {
     String findUsernameById(Long id);
 }
 
-/** The service which performs operations on the TODO table in the database. */
+/**
+ * The service which performs operations on the TODO table in the database.
+ */
 interface TodoService {
 
     List<String> retrieveTodos(String username);
@@ -36,10 +38,8 @@ class TodoApplication {
      * Searches all the ToDos related to a user. Select only todos that contain the
      * keyword. It also updates the last visualization date of that todo.
      *
-     * @param userId
-     *            the id of the user
-     * @param keyword
-     *            keyword to be searched for
+     * @param userId  the id of the user
+     * @param keyword keyword to be searched for
      * @return list of todos
      */
     public List<String> retrieveTodos(Long userId, String keyword) {

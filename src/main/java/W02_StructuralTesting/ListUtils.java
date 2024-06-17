@@ -6,7 +6,9 @@ import java.util.List;
 
 public class ListUtils {
 
-    /** <code>ListUtils</code> should not normally be instantiated. */
+    /**
+     * <code>ListUtils</code> should not normally be instantiated.
+     */
     private ListUtils() {
     }
 
@@ -14,15 +16,11 @@ public class ListUtils {
      * Returns a new list containing all elements that are contained in both given
      * lists.
      *
-     * @param <E>
-     *            the element type
-     * @param list1
-     *            the first list
-     * @param list2
-     *            the second list
+     * @param <E>   the element type
+     * @param list1 the first list
+     * @param list2 the second list
      * @return the intersection of those two lists
-     * @throws NullPointerException
-     *             if either list is null
+     * @throws NullPointerException if either list is null
      */
     public static <E> List<E> intersection(final List<? extends E> list1, final List<? extends E> list2) {
         final List<E> result = new ArrayList<>();

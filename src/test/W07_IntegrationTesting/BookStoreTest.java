@@ -13,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 public class BookStoreTest {
     private WebDriver driver;
+
     @BeforeEach
     public void initDriver() {
         WebDriverManager.firefoxdriver().setup();
@@ -21,20 +22,20 @@ public class BookStoreTest {
     }
 
     @Test
-    public void testAddAuthor(){
+    public void testAddAuthor() {
         WebElement authorName = driver.findElement(By.id("author_name"));
         WebElement submitButton = driver.findElement(By.id("author_submit_button"));
-        WebElement alertMessage =driver.findElement(By.id("alert-msg"));
+        WebElement alertMessage = driver.findElement(By.id("alert-msg"));
         authorName.sendKeys("Author1");
         submitButton.click();
-        assertEquals(alertMessage.getText(),"Author successfully added with id 1");
+        assertEquals(alertMessage.getText(), "Author successfully added with id 1");
         authorName.clear();
         authorName.sendKeys("Author1");
         submitButton.click();
-        assertEquals(alertMessage.getText(),"Author with that name already exists!");
+        assertEquals(alertMessage.getText(), "Author with that name already exists!");
         authorName.clear();
         submitButton.click();
-        assertEquals(alertMessage.getText(),"Author name cannot be empty");
+        assertEquals(alertMessage.getText(), "Author name cannot be empty");
     }
 
     @AfterEach

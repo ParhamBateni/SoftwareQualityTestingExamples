@@ -7,6 +7,7 @@ public class WordUtils {
     }
 
     // -----------------------------------------------------------------------
+
     /**
      * Swaps the case of a String using a word based algorithm.
      *
@@ -19,8 +20,7 @@ public class WordUtils {
      * Whitespace is defined by {@link Character#isWhitespace(char)}. A {@code null}
      * input String returns {@code null}.
      *
-     * @param str
-     *            the String to swap case, may be null
+     * @param str the String to swap case, may be null
      * @return the changed String, {@code null} if null String input
      */
     public static String swapCase(final String str) {
@@ -48,8 +48,7 @@ public class WordUtils {
      * NOTE: This method changed in Lang version 2.0. It no longer trims the
      * CharSequence. That functionality is available in isBlank().
      *
-     * @param cs
-     *            the CharSequence to check, may be null
+     * @param cs the CharSequence to check, may be null
      * @return {@code true} if the CharSequence is empty or null
      * @since 3.0 Changed signature from isEmpty(String) to isEmpty(CharSequence)
      */

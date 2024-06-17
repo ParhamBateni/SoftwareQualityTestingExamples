@@ -26,8 +26,7 @@ class TheQueue {
     /**
      * Gets the next request in the Queue for a specific course.
      *
-     * @param course
-     *            the course for which to get the next request
+     * @param course the course for which to get the next request
      * @return the next request
      */
     String getNext(String course) {

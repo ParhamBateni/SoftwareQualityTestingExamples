@@ -1,19 +1,21 @@
 package W07_IntegrationTesting;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class RecipeDaoTest {
     RecipeDaoIntegrationTemplate recipeDaoIntegrationTemplate;
     RecipeDao recipeDao;
+
     @BeforeEach
-    public void setup(){
+    public void setup() {
         recipeDaoIntegrationTemplate = new RecipeDaoIntegrationTemplate();
         try {
             recipeDaoIntegrationTemplate.openConnectionAndCleanup();
@@ -24,7 +26,7 @@ public class RecipeDaoTest {
     }
 
     @AfterEach
-    public void cleanUp(){
+    public void cleanUp() {
         try {
             recipeDaoIntegrationTemplate.close();
         } catch (SQLException e) {
@@ -39,9 +41,10 @@ public class RecipeDaoTest {
             add(new Recipe(2, 20, 30, true, true, "element2"));
             add(new Recipe(3, 30, 40, false, true, "element3"));
         }};
-        recipes.forEach((x)->recipeDao.save(x));
-        assertEquals(10,recipeDao.getQuickestVeganDessert());
+        recipes.forEach((x) -> recipeDao.save(x));
+        assertEquals(10, recipeDao.getQuickestVeganDessert());
     }
+
     @Test
     public void testRecipeDoesNotExist() {
         List<Recipe> recipes = new ArrayList<>() {{
@@ -49,7 +52,7 @@ public class RecipeDaoTest {
             add(new Recipe(2, 20, 30, true, false, "element2"));
             add(new Recipe(3, 30, 40, false, true, "element3"));
         }};
-        recipes.forEach((x)->recipeDao.save(x));
-        assertEquals(0,recipeDao.getQuickestVeganDessert());
+        recipes.forEach((x) -> recipeDao.save(x));
+        assertEquals(0, recipeDao.getQuickestVeganDessert());
     }
 }

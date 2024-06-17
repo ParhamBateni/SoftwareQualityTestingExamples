@@ -1,13 +1,22 @@
 package W06_TestDoublesAndMocks;
 
-import static org.junit.Assert.*;
+import net.jqwik.api.Example;
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
+import net.jqwik.api.constraints.AlphaChars;
 
-import net.jqwik.api.*;
-import net.jqwik.api.constraints.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class PalindromeTest {
+    static String reverse(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+        return sb.toString();
+    }
+
     @Example
-    public void testEdgeCases(){
+    public void testEdgeCases() {
         assertTrue(Palindrome.isPalindrome(""));
         assertTrue(Palindrome.isPalindrome("a"));
         assertTrue(Palindrome.isPalindrome("Aa"));
@@ -16,37 +25,30 @@ public class PalindromeTest {
     }
 
     @Property
-    public void testIsPalindrome1(@ForAll @AlphaChars String s){
-        StringBuilder sb = new StringBuilder(s);
-        sb.append(reverse(s));
-        assertTrue(Palindrome.isPalindrome(sb.toString()));
+    public void testIsPalindrome1(@ForAll @AlphaChars String s) {
+        assertTrue(Palindrome.isPalindrome(s + reverse(s)));
     }
+
     @Property
-    public void testIsPalindrome2(@ForAll @AlphaChars String s){
-        StringBuilder sb = new StringBuilder(s);
-        sb.append('a');
-        sb.append(reverse(s));
-        assertTrue(Palindrome.isPalindrome(sb.toString()));
+    public void testIsPalindrome2(@ForAll @AlphaChars String s) {
+        String sb = s + 'a' +
+                reverse(s);
+        assertTrue(Palindrome.isPalindrome(sb));
     }
+
     @Property
-    public void testIsPalindrome3(@ForAll @AlphaChars String s){
-        StringBuilder sb = new StringBuilder(s);
-        sb.append('a');
-        sb.append('a');
-        sb.append(reverse(s));
-        assertTrue(Palindrome.isPalindrome(sb.toString()));
+    public void testIsPalindrome3(@ForAll @AlphaChars String s) {
+        String sb = s + 'a' +
+                'a' +
+                reverse(s);
+        assertTrue(Palindrome.isPalindrome(sb));
     }
+
     @Property
-    public void testIsNotPalindrome1(@ForAll @AlphaChars String s){
-        StringBuilder sb = new StringBuilder(s);
-        sb.append('*');
-        sb.append('&');
-        assertFalse(Palindrome.isPalindrome(sb.toString()));
-    }
-    static String reverse(String str) {
-        StringBuilder sb = new StringBuilder(str);
-        sb.reverse();
-        return sb.toString();
+    public void testIsNotPalindrome1(@ForAll @AlphaChars String s) {
+        String sb = s + '*' +
+                '&';
+        assertFalse(Palindrome.isPalindrome(sb));
     }
 
 }

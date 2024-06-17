@@ -2,21 +2,36 @@ package W06_TestDoublesAndMocks;
 
 import java.time.LocalDate;
 import java.util.List;
-
-class ElementNotFoundException extends RuntimeException {
-}
+import java.util.Objects;
 
 enum Destination {
     GREECE, MALTA, TAHITI, ZANZIBAR
 }
 
+interface TripRepository {
+
+    Trip getTripById(Long id) throws ElementNotFoundException;
+
+    void update(Trip trip, int capacity);
+}
+
+interface ReservationRepository {
+
+    void save(Reservation reservation);
+
+    List<Reservation> getAllReservationsByTrip(Trip trip);
+}
+
+class ElementNotFoundException extends RuntimeException {
+}
+
 class Info {
 
-    private LocalDate startDate;
+    private final LocalDate startDate;
 
-    private LocalDate endDate;
+    private final LocalDate endDate;
 
-    private Destination destination;
+    private final Destination destination;
 
     public Info(LocalDate startDate, LocalDate endDate, Destination destination) {
         this.startDate = startDate;
@@ -29,13 +44,13 @@ class Trip {
 
     private Long id;
 
-    private String name;
+    private final String name;
 
-    private Info info;
+    private final Info info;
 
-    private Integer price;
+    private final Integer price;
 
-    private Integer capacity;
+    private final Integer capacity;
 
     public Trip(String name, Info info, Integer price, Integer capacity) {
         this.name = name;
@@ -49,22 +64,15 @@ class Trip {
     }
 }
 
-interface TripRepository {
-
-    Trip getTripById(Long id) throws ElementNotFoundException;
-
-    void update(Trip trip, int capacity);
-}
-
 class Person {
 
-    private String firstName;
+    private final String firstName;
 
-    private String middleName;
+    private final String middleName;
 
-    private String lastName;
+    private final String lastName;
 
-    private LocalDate dateOfBirth;
+    private final LocalDate dateOfBirth;
 
     public Person(String firstName, String middleName, String lastName, LocalDate dateOfBirth) {
         this.firstName = firstName;
@@ -78,9 +86,9 @@ class Reservation {
 
     private String code;
 
-    private Trip trip;
+    private final Trip trip;
 
-    private List<Person> people;
+    private final List<Person> people;
 
     public Reservation(Trip trip, List<Person> people) {
         this.trip = trip;
@@ -98,19 +106,12 @@ class Reservation {
         if (o == null || getClass() != o.getClass())
             return false;
         Reservation that = (Reservation) o;
-        if (code != null ? !code.equals(that.code) : that.code != null)
+        if (!Objects.equals(code, that.code))
             return false;
-        if (trip != null ? !trip.equals(that.trip) : that.trip != null)
+        if (!Objects.equals(trip, that.trip))
             return false;
-        return people != null ? people.equals(that.people) : that.people == null;
+        return Objects.equals(people, that.people);
     }
-}
-
-interface ReservationRepository {
-
-    void save(Reservation reservation);
-
-    List<Reservation> getAllReservationsByTrip(Trip trip);
 }
 
 class SoftWhere {
@@ -127,8 +128,7 @@ class SoftWhere {
     /**
      * The capacity that is left for a specific trip.
      *
-     * @param trip
-     *            the trip
+     * @param trip the trip
      * @return the number of spots left on a trip
      */
     private int capacityLeft(Trip trip) {
@@ -140,10 +140,8 @@ class SoftWhere {
      * Makes a reservation for a trip for a list of people if there is enough
      * capacity left for them.
      *
-     * @param tripId
-     *            the id of the trip
-     * @param people
-     *            the people who want to reserve the trip
+     * @param tripId the id of the trip
+     * @param people the people who want to reserve the trip
      * @return true if the reservation is successful
      */
     public boolean makeReservation(Long tripId, List<Person> people) {

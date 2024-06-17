@@ -14,18 +14,13 @@ public class StringUtils extends StringUtilitiesExtra {
      * <p>
      * A {@code null} reference passed to this method is a no-op.
      *
-     * @param text
-     *            text to search and replace in, may be null
-     * @param searchString
-     *            the String to search for (case insensitive), may be null
-     * @param replacement
-     *            the String to replace it with, may be null
-     * @param max
-     *            maximum number of values to replace, or {@code -1} if no maximum
-     * @param ignoreCase
-     *            if true replace is case insensitive, otherwise case sensitive
+     * @param text         text to search and replace in, may be null
+     * @param searchString the String to search for (case insensitive), may be null
+     * @param replacement  the String to replace it with, may be null
+     * @param max          maximum number of values to replace, or {@code -1} if no maximum
+     * @param ignoreCase   if true replace is case insensitive, otherwise case sensitive
      * @return the text with any replacements processed, {@code null} if null String
-     *         input
+     * input
      */
     public static String replace(final String text, String searchString, final String replacement, int max,
                                  final boolean ignoreCase) {

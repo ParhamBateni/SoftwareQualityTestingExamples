@@ -1,5 +1,15 @@
 package W04_PropertyBasedTesting;
 
+interface Scoring {
+    int pointsForJedi();
+
+    int pointsForNormalUser();
+}
+
+interface UserRepository {
+    void update(User user);
+}
+
 class StackOverflow {
 
     private final UserRepository userRepository;
@@ -12,7 +22,7 @@ class StackOverflow {
 
     public void downvote(Post post, User voter) {
         User author = post.getAuthor();
-        if(voter.isJedi()) {
+        if (voter.isJedi()) {
             author.removePoints(scoring.pointsForJedi());
         } else {
             author.removePoints(scoring.pointsForNormalUser());
@@ -21,19 +31,10 @@ class StackOverflow {
     }
 }
 
-interface Scoring {
-    int pointsForJedi();
-    int pointsForNormalUser();
-}
-
-interface UserRepository {
-    void update(User user);
-}
-
 class User {
-    private String user;
+    private final String user;
     private int points;
-    private boolean jedi;
+    private final boolean jedi;
 
     public User(String user, int points, boolean jedi) {
         this.user = user;
@@ -61,6 +62,7 @@ class User {
         return jedi;
     }
 }
+
 class Post {
     private final User author;
     private final String message;
@@ -69,9 +71,11 @@ class Post {
         this.author = author;
         this.message = message;
     }
+
     public User getAuthor() {
         return this.author;
     }
+
     public String getMessage() {
         return message;
     }

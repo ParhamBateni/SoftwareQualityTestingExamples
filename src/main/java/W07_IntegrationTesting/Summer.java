@@ -1,5 +1,7 @@
 package W07_IntegrationTesting;
+
 import java.util.List;
+
 class Summer {
 
     private Summer() {

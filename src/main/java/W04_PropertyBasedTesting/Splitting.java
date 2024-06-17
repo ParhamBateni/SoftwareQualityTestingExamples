@@ -1,4 +1,5 @@
 package W04_PropertyBasedTesting;
+
 public class Splitting {
     private Splitting() {
         // Empty Constructor
@@ -9,12 +10,11 @@ public class Splitting {
      * so that the sum of the numbers on one side is equal to the sum of the numbers
      * on the other side.
      *
-     * @param nums
-     *            the array containing the input numbers. The array must be non-null
-     *            and with len > 1; the program returns false in case these
-     *            pre-conditions are violated. The input array sum must not also cause
-     * 			  integer overflow, in which cause no certain behaviour should be
-     * 			  expected.
+     * @param nums the array containing the input numbers. The array must be non-null
+     *             and with len > 1; the program returns false in case these
+     *             pre-conditions are violated. The input array sum must not also cause
+     *             integer overflow, in which cause no certain behaviour should be
+     *             expected.
      * @return true if they can be split in the way defined above
      */
     public static boolean canBalance(int[] nums) {

@@ -11,22 +11,22 @@ public class SeatFinder {
 
     /**
      * Finds the cheapest seats and returns the total price for those seats.
-     *
+     * <p>
      * If there are fewer seats available than requested,
      * only the prices for the ones that are available are counted.
-     *
+     * <p>
      * When the total price of the seats is larger than 100,
      * a discount of 5 euros is applied.
-     *
+     * <p>
      * The prices and taken arrays cannot be null and need to have the same size.
      * The number of seats requested should be at least 1.
      *
-     * @param prices an array indicating the price of each seat
-     * @param taken an array indicating whether a seat has been taken already
+     * @param prices        an array indicating the price of each seat
+     * @param taken         an array indicating whether a seat has been taken already
      * @param numberOfSeats the number of seats requested
+     * @return total price for the seats
      * @throws IllegalArgumentException when any of the arguments do not
      *                                  adhere to their requirements
-     * @return total price for the seats
      */
     public static double getCheapestPrice(double[] prices, boolean[] taken, int numberOfSeats) {
         if (prices == null || taken == null) {

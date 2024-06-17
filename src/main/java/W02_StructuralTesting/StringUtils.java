@@ -2,20 +2,21 @@ package W02_StructuralTesting;
 
 public class StringUtils {
 
-    private StringUtils() {
-        // Override default constructor, to prevent it from getting considered in the
-        // coverage report.
-    }
-
-    /** The maximum size to which the padding constant(s) can expand. */
-    private static final int PAD_LIMIT = 8192;
-
     /**
      * The empty String {@code ""}.
      *
      * @since 2.0
      */
     public static final String EMPTY = "";
+    /**
+     * The maximum size to which the padding constant(s) can expand.
+     */
+    private static final int PAD_LIMIT = 8192;
+
+    private StringUtils() {
+        // Override default constructor, to prevent it from getting considered in the
+        // coverage report.
+    }
 
     /**
      * Returns padding using the specified delimiter repeated to a given length.
@@ -27,10 +28,8 @@ public class StringUtils {
      * represented. If you are needing to support full I18N of your applications
      * consider using {@link #repeat(String, int)} instead.
      *
-     * @param ch
-     *            character to repeat
-     * @param repeat
-     *            number of times to repeat char, should be positive
+     * @param ch     character to repeat
+     * @param repeat number of times to repeat char, should be positive
      * @return String with repeated character
      * @see #repeat(String, int)
      */
@@ -45,12 +44,10 @@ public class StringUtils {
     /**
      * Repeat a String {@code repeat} times to form a new String.
      *
-     * @param str
-     *            the String to repeat, may be null
-     * @param repeat
-     *            number of times to repeat str, negative treated as zero
+     * @param str    the String to repeat, may be null
+     * @param repeat number of times to repeat str, negative treated as zero
      * @return a new String consisting of the original String repeated, {@code null}
-     *         if null String input
+     * if null String input
      */
     public static String repeat(final String str, final int repeat) {
         if (str == null) {
@@ -68,9 +65,9 @@ public class StringUtils {
         }
         final int outputLength = inputLength * repeat;
         switch (inputLength) {
-            case 1 :
+            case 1:
                 return repeat(str.charAt(0), repeat);
-            case 2 :
+            case 2:
                 final char ch0 = str.charAt(0);
                 final char ch1 = str.charAt(1);
                 final char[] output2 = new char[outputLength];
@@ -79,7 +76,7 @@ public class StringUtils {
                     output2[i + 1] = ch1;
                 }
                 return new String(output2);
-            default :
+            default:
                 final StringBuilder buf = new StringBuilder(outputLength);
                 for (int i = 0; i < repeat; i++) {
                     buf.append(str);

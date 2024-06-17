@@ -20,14 +20,11 @@ public class CaseUtils {
      * uses the Unicode title case, normally equivalent to upper case and cannot
      * perform locale-sensitive mappings.
      *
-     * @param str
-     *            the String to be converted to camelCase, may be null
-     * @param capitalizeFirstLetter
-     *            boolean that determines if the first character of first word
-     *            should be title case.
-     * @param delimiters
-     *            set of characters to determine capitalization, null and/or empty
-     *            array means whitespace
+     * @param str                   the String to be converted to camelCase, may be null
+     * @param capitalizeFirstLetter boolean that determines if the first character of first word
+     *                              should be title case.
+     * @param delimiters            set of characters to determine capitalization, null and/or empty
+     *                              array means whitespace
      * @return camelCase of String, <code>null</code> if null String input
      */
     public static String toCamelCase(String str, final boolean capitalizeFirstLetter, final char... delimiters) {
@@ -39,17 +36,11 @@ public class CaseUtils {
         final int[] newCodePoints = new int[strLen];
         int outOffset = 0;
         final Set<Integer> delimiterSet = generateDelimiterSet(delimiters);
-        boolean capitalizeNext = false;
-        if (capitalizeFirstLetter) {
-            capitalizeNext = true;
-        }
-        for (int index = 0; index < strLen;) {
+        boolean capitalizeNext = capitalizeFirstLetter;
+        for (int index = 0; index < strLen; ) {
             final int codePoint = str.codePointAt(index);
             if (delimiterSet.contains(codePoint)) {
-                capitalizeNext = true;
-                if (outOffset == 0) {
-                    capitalizeNext = false;
-                }
+                capitalizeNext = outOffset != 0;
                 index += Character.charCount(codePoint);
             } else if (capitalizeNext) {
                 final int titleCaseCodePoint = Character.toTitleCase(codePoint);
@@ -72,9 +63,8 @@ public class CaseUtils {
      * space(32) is added as the default value. The generated hash set provides O(1)
      * lookup time.
      *
-     * @param delimiters
-     *            set of characters to determine capitalization, null means
-     *            whitespace
+     * @param delimiters set of characters to determine capitalization, null means
+     *                   whitespace
      * @return Set<Integer>
      */
     private static Set<Integer> generateDelimiterSet(final char[] delimiters) {

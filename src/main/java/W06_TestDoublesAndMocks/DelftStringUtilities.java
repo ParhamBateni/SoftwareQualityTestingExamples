@@ -19,15 +19,12 @@ class DelftStringUtilities {
      * returns {@code
      * null} (no match). An empty ("") open/close returns {@code null} (no match).
      *
-     * @param str
-     *            the String containing the substrings, null returns null, empty
-     *            returns empty
-     * @param open
-     *            the String identifying the start of the substring, empty returns
-     *            null
-     * @param close
-     *            the String identifying the end of the substring, empty returns
-     *            null
+     * @param str   the String containing the substrings, null returns null, empty
+     *              returns empty
+     * @param open  the String identifying the start of the substring, empty returns
+     *              null
+     * @param close the String identifying the end of the substring, empty returns
+     *              null
      * @return a String Array of substrings, or {@code null} if no match
      * @since 2.3
      */
@@ -69,8 +66,7 @@ class DelftStringUtilities {
      * NOTE: This method changed in Lang version 2.0. It no longer trims the
      * CharSequence. That functionality is available in isBlank().
      *
-     * @param cs
-     *            the CharSequence to check, may be null
+     * @param cs the CharSequence to check, may be null
      * @return {@code true} if the CharSequence is empty or null
      * @since 3.0 Changed signature from isEmpty(String) to isEmpty(CharSequence)
      */

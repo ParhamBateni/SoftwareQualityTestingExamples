@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Collection;
 import java.util.List;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class CollectionUtilsTest {
@@ -13,17 +14,17 @@ public class CollectionUtilsTest {
         Collection c1 = List.of();
         Collection c2 = List.of();
         Collection c3 = List.of(1, 2);
-        assertTrue(!CollectionUtils.containsAny(c1, c2));
-        assertTrue(!CollectionUtils.containsAny(c1, c3));
-        assertTrue(!CollectionUtils.containsAny(c3, c1));
+        assertFalse(CollectionUtils.containsAny(c1, c2));
+        assertFalse(CollectionUtils.containsAny(c1, c3));
+        assertFalse(CollectionUtils.containsAny(c3, c1));
     }
 
     @Test
     public void testContainsAnyNoIntersection() {
         Collection c1 = List.of(1, 2);
         Collection c2 = List.of(3, 4, 5);
-        assertTrue(!CollectionUtils.containsAny(c1, c2));
-        assertTrue(!CollectionUtils.containsAny(c2, c1));
+        assertFalse(CollectionUtils.containsAny(c1, c2));
+        assertFalse(CollectionUtils.containsAny(c2, c1));
     }
 
     @Test

@@ -17,7 +17,7 @@ interface AuthService {
      * Checks whether a user is allowed to retrieve a specific
      * lab result.
      *
-     * @param userId the id of the user
+     * @param userId   the id of the user
      * @param resultId the id of the lab result
      * @return true if this user can view this lab result
      */
@@ -55,7 +55,7 @@ class MyHealth {
      * Retrieves a specific lab result if the user requesting
      * it is authorised to view it.
      *
-     * @param userId the id of the user requesting the lab result
+     * @param userId   the id of the user requesting the lab result
      * @param resultId the id of the requested lab result
      * @return the lab result or null if the user is not authorised
      */
